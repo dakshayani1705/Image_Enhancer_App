@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Enhancer App - Simple Image Processor</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Cropper.js CSS from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Image Enhancer App</h1>
+            <p class="subtitle">Simple & Fast Image Editing</p>
+
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <input type="file" id="imageInput" accept="image/png, image/jpeg" hidden />
+                <button id="uploadBtn" class="btn primary">Upload Image</button>
+            </div>
+
+            <!-- Editing Area -->
+            <div id="editorContainer" class="editor-container hidden">
+                <div class="image-box">
+                    <img id="imagePreview" src="" alt="Preview" />
+                </div>
+
+                <div class="controls">
+                    <!-- Crop & Rotate -->
+                    <div class="btn-group">
+                        <button id="cropBtn" class="btn secondary">Crop Selection</button>
+                        <button id="rotateBtn" class="btn secondary">Rotate 90°</button>
+                    </div>
+
+                    <!-- Sliders Group -->
+                    <div class="sliders-grid">
+                        <!-- Resize Control -->
+                        <div class="control-group">
+                            <label for="resizeSlider">Resize: <span id="resizeValue">100%</span></label>
+                            <input type="range" id="resizeSlider" min="10" max="200" value="100" />
+                        </div>
+
+                        <!-- Brightness Control -->
+                        <div class="control-group">
+                            <label for="brightnessSlider">Brightness: <span id="brightnessValue">100%</span></label>
+                            <input type="range" id="brightnessSlider" min="0" max="200" value="100" />
+                        </div>
+
+                        <!-- Contrast Control -->
+                        <div class="control-group">
+                            <label for="contrastSlider">Contrast: <span id="contrastValue">100%</span></label>
+                            <input type="range" id="contrastSlider" min="0" max="200" value="100" />
+                        </div>
+                    </div>
+
+                    <!-- Filters & Actions -->
+                    <div class="btn-group">
+                        <button id="grayscaleBtn" class="btn secondary">
+                            Toggle Grayscale
+                        </button>
+                        <button id="resetBtn" class="btn danger">Reset All</button>
+                    </div>
+
+                    <!-- Download -->
+                    <button id="downloadBtn" class="btn success">
+                        Download Result
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hidden Canvas for Processing -->
+            <canvas id="processCanvas" style="display: none"></canvas>
+        </div>
+    </div>
+
+    <!-- Cropper.js JS from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
